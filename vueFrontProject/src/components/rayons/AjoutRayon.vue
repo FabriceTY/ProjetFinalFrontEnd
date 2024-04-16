@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="soumettre">
+    <form>
         <div class="mb-3">
             <label for="nomRayon" class="form-label">Nom Rayon</label>
             <input type="text" class="form-control" id="nomRayon" v-model="rayon.nomRayon">
@@ -7,7 +7,11 @@
         <div class="mb-3">
             <label for="descriptionRayon" class="form-label">Description </label>
             <input type="text" class="form-control" id="descriptionRayon" v-model="rayon.descriptionRayon">
-        </div>       
+        </div> 
+        <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary" @click="soumettre()">Soumettre</button> 
+            <button type="submit" class="btn btn-primary" @click="goToListeRayon()" >Annuler</button>   
+        </div>      
     </form>
 </template>
 
@@ -31,9 +35,10 @@ const soumettre = () =>{
     addRayon(rayon.value)
     .then(res =>{
         console.log(res)
-        router.push('/')
+        router.push('/get-rayon')
     })
     .catch(err => console.log('erreur',err))
     console.log('rayon', rayon.value)
 }
+const goToListeRayon = () => router.push('/get-rayon')
 </script>

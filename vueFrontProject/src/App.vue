@@ -8,27 +8,42 @@ import { RouterLink, RouterView } from 'vue-router'
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="You didn't do it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <RouterLink to="/">Home</RouterLink>
+                <RouterLink to="/login">Login</RouterLink>
+              </li>                          
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>       
       </nav>
     </div>
   </header>
+  <body>
+    <RouterView />
+  </body>
+  <footer class="bg-body-tertiary text-center text-lg-start">
+        <div class="text-center p-3">
+            © 2024 Copyright: Toute l'equipe de programmeur Ottawa
+        </div>
+    </footer>
 
-  <RouterView />
+ 
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {

@@ -11,6 +11,9 @@
         <div class="mb-3">
             <label for="sexeAuteur" class="form-label">Sexe Auteur </label>
             <input type="text" class="form-control" id="sexeAuteur" v-model="auteur.sexeAuteur">
+        </div> <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary" @click="soumettre()">Soumettre</button> 
+            <button type="submit" class="btn btn-primary" @click="goToListeAuteur()" >Annuler</button>   
         </div> 
     </form>
 </template>
@@ -36,9 +39,10 @@ const soumettre = () =>{
     addAuteur(auteur.value)
     .then(res =>{
         console.log(res)
-        router.push('/')
+        router.push('/get-auteur')
     })
     .catch(err => console.log('erreur',err))
     console.log('auteur', auteur.value)
 }
+const goToListeAuteur= () => router.push('/get-auteur')
 </script>
