@@ -3,13 +3,26 @@ import axios from "axios";
 const useRayon = () =>{
     // creer une fonction qui recuperer la liste des rayons
     const getAllRayons = async()=>{
-        const rayons = await axios.get(`${import.meta.env.VITE_BASE_URL}/rayons`)
-        return rayons.data
+        const rayon = await axios.get(`${import.meta.env.VITE_BASE_URL}/rayon`)
+        return rayon.data
     }
-    const addRayon = async (addRayon) => {
-        await axios.post(`${import.meta.env.VITE_BASE_URL}/rayons`, rayon)
+    const addRayon = async (rayon) => {
+        await axios.post(`${import.meta.env.VITE_BASE_URL}/rayon`, rayon)
 
     }
-    return {getAllRayons, addRayon}
+    const deleteRayon = async (id) => {
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/rayon/${id}`)
+    }
+
+    const getRayonById = async (id) => {
+        const rayon = await axios.get(`${import.meta.env.VITE_BASE_URL}/rayon/${id}`)
+        return rayon.data
+    }
+    
+    const updateRayon = async (id, rayon) => {
+        await axios.put(`${import.meta.env.VITE_BASE_URL}/rayon/${id}`, rayon)
+
+    }
+    return {getAllRayons, addRayon,deleteRayon, getRayonById, updateRayon}
 }
 export default useRayon
